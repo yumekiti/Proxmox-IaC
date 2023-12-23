@@ -1,7 +1,7 @@
 # lxc-basic
 module "lxc-basic" {
   hostname         = "lxc-basic"
-  source           = "./lxc-basic"
+  source           = "./lxc-basic/terraform"
   target_node      = "proxmox"
   ipv4_address     = "192.168.11.30/24"
   gateway_address  = "192.168.11.1"
