@@ -1,7 +1,8 @@
 ---
 - hosts: all
-  become: yes
+  remote_user: root
   tasks: 
   - name: install vim
+    become: yes
     apt:
       name: vim

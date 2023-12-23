@@ -1,8 +1,11 @@
 ## How to run
 
 ```bash
-terraform plan
-terraform apply
+terraform plan -var-file ./proxmox.tfvars
+terraform apply -var-file ./proxmox.tfvars
+
+# モジュール単位で実行する場合
+terraform [plan|apply|destroy] -var-file ./proxmox.tfvars -target=module.[モジュール名]
 ```
 
 ## IP addresses Table

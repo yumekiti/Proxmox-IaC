@@ -42,7 +42,6 @@ resource "proxmox_lxc" "basic" {
       ANSIBLE_HOST_KEY_CHECKING=False \
       ansible-playbook \
       -i ${split("/", var.ipv4_address)[0]}, \
-      -u root \
       ./${var.hostname}/playbook.yml
     EOT
   }
