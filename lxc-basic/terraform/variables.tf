@@ -8,6 +8,11 @@ variable "target_node" {
   type        = string
 }
 
+variable "bridge_name" {
+  description = "The name of the bridge to attach the container to"
+  type        = string
+}
+
 variable "ipv4_address" {
   description = "The IPv4 address of the container"
   type        = string
