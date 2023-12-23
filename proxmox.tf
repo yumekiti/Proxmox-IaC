@@ -20,6 +20,14 @@ variable "pve_token_secret" {
   sensitive   = true
 }
 
+variable "public_key_path" {
+  type = string
+}
+
+variable "private_key_path" {
+  type = string
+}
+
 terraform {
   required_providers {
     proxmox = {
