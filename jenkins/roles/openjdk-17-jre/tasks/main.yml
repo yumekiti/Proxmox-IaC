@@ -1,0 +1,11 @@
+---
+# tasks file for myrole
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install fontconfig and OpenJDK 17 JRE
+  apt:
+    name:
+      - fontconfig
+      - openjdk-17-jre

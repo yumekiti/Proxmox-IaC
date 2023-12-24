@@ -1,0 +1,21 @@
+---
+# tasks file for myrole
+- name: Download Jenkins keyring
+  get_url:
+    url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+    dest: /usr/share/keyrings/jenkins-keyring.asc
+    mode: 0644
+
+- name: Add Jenkins repository to sources list
+  lineinfile:
+    dest: /etc/apt/sources.list.d/jenkins.list
+    line: "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/"
+    create: yes
+
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install Jenkins
+  apt:
+    name: jenkins
