@@ -27,7 +27,7 @@ resource "proxmox_lxc" "basic" {
   provisioner "remote-exec" {
     inline = [
       "apt update",
-      "apt install -y ca-certificates",
+      "apt install -y ca-certificates git",
     ]
 
     connection {
