@@ -33,8 +33,6 @@ pipeline {
         dir("/root/cloud") {
           sh "terraform plan -no-color -var-file ./proxmox.tfvars -out plan.out"
         }
-        // プランを適用するか確認するインプット
-        input message: "Apply Plan?", ok: "Apply"
       }
     }
     // Terraformの適用ステージ
