@@ -7,11 +7,6 @@ pipeline {
     skipDefaultCheckout(true)
   }
 
-  tools {
-    // Terraformのバージョンを指定
-    terraform "terraform"
-  }
-
   stages {
     // ワークスペースをクリアするステージ
     stage("clean workspace") {
