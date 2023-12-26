@@ -31,7 +31,7 @@ pipeline {
       steps {
         // プランを作成するステップ
         dir("/root/cloud") {
-          sh "terraform plan -no-color -out=plan.out"
+          sh "terraform plan -no-color -out=plan.out -var-file ./proxmox.tfvars"
         }
         // プランを適用するか確認するインプット
         input message: "Apply Plan?", ok: "Apply"
@@ -42,7 +42,7 @@ pipeline {
       steps {
         // Terraformの適用を行うステップ
         dir("/root/cloud") {
-          sh "terraform apply plan.out -no-color"
+          sh "terraform apply plan.out -no-color -var-file ./proxmox.tfvars"
         }
       }
     }
