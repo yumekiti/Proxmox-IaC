@@ -3,6 +3,6 @@
 - name: install vim
   apt:
     name: vim
-- name: install git
+- name: install sl
   apt:
-    name: git
+    name: sl
