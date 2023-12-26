@@ -9,7 +9,7 @@ pipeline {
 
   tools {
     // Terraformのバージョンを指定
-    terraform "terraform-1.6.6"
+    terraform "terraform"
   }
 
   stages {
