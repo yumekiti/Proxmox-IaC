@@ -21,14 +21,18 @@ pipeline {
     stage("terraform init") {
       steps {
         // Terraformの初期化を行うステップ
-        sh "terraform init -no-color"
+        dir("/root/cloud") {
+          sh "terraform init -no-color"
+        }
       }
     }
     // Terraformのプラン作成ステージ
     stage("terraform plan") {
       steps {
         // プランを作成するステップ
-        sh "terraform plan -no-color -out=plan.out"
+        dir("/root/cloud") {
+          sh "terraform plan -no-color -out=plan.out"
+        }
         // プランを適用するか確認するインプット
         input message: "Apply Plan?", ok: "Apply"
       }
@@ -37,7 +41,9 @@ pipeline {
     stage("terraform apply") {
       steps {
         // Terraformの適用を行うステップ
-        sh "terraform apply plan.out -no-color"
+        dir("/root/cloud") {
+          sh "terraform apply plan.out -no-color"
+        }
       }
     }
   }
