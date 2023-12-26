@@ -17,17 +17,6 @@ pipeline {
         cleanWs()
       }
     }
-    // 環境変数を設定するステージ
-    stage("set environment variables") {
-      steps {
-        // 環境変数を設定するステップ
-        sh "export TF_VAR_api_url=\"${TF_VAR_api_url}\""
-        sh "export TF_VAR_pve_token_id=\"${TF_VAR_pve_token_id}\""
-        sh "export TF_VAR_pve_token_secret=\"${TF_VAR_pve_token_secret}\""
-        sh "export TF_VAR_private_key_path=\"${TF_VAR_private_key_path}\""
-        sh "export TF_VAR_public_key_path=\"${TF_VAR_public_key_path}\""
-      }
-    }
     // Terraformの初期化ステージ
     stage("terraform init") {
       steps {
