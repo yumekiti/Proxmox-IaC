@@ -17,6 +17,15 @@ pipeline {
         cleanWs()
       }
     }
+    // git pullステージ
+    stage("git pull") {
+      steps {
+        // git pullを行うステップ
+        dir("/root/cloud") {
+          sh "git pull"
+        }
+      }
+    }
     // Terraformの初期化ステージ
     stage("terraform init") {
       steps {
