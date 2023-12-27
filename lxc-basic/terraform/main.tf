@@ -7,6 +7,7 @@ resource "proxmox_lxc" "basic" {
   ostemplate  = "local:vztmpl/ubuntu-20.04-standard_20.04-1_amd64.tar.gz"
   password    = var.hostname
   start       = true
+  onboot      = true
 
   rootfs {
     storage = "local-lvm"
