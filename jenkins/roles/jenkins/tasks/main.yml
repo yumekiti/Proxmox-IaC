@@ -1,5 +1,16 @@
 ---
 # tasks file for myrole
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install ca-certificates, git
+  apt:
+    name:
+      - ca-certificates
+      - git
+    state: latest
+
 - name: Download Jenkins keyring
   get_url:
     url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key

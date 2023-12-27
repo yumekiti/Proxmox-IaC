@@ -1,4 +1,4 @@
-resource "proxmox_lxc" "basic" {
+resource "proxmox_lxc" "jenkins" {
   target_node = var.target_node
   hostname    = var.hostname
   cores       = 1
@@ -27,8 +27,7 @@ resource "proxmox_lxc" "basic" {
 
   provisioner "remote-exec" {
     inline = [
-      "apt update",
-      "apt install -y ca-certificates git",
+      "echo 'connect to ${split("/", var.ipv4_address)[0]}'"
     ]
 
     connection {
@@ -41,10 +40,7 @@ resource "proxmox_lxc" "basic" {
 
   provisioner "local-exec" {
     command = <<-EOT
-      ANSIBLE_HOST_KEY_CHECKING=False \
-      ansible-playbook \
-      -i ${split("/", var.ipv4_address)[0]}, \
-      ./${var.hostname}/playbook.yml
+      ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${split("/", var.ipv4_address)[0]}, ./${var.hostname}/playbook.yml
     EOT
   }
 }
