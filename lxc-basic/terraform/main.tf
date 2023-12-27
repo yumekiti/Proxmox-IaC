@@ -40,10 +40,7 @@ resource "proxmox_lxc" "basic" {
 
   provisioner "local-exec" {
     command = <<-EOT
-      ANSIBLE_HOST_KEY_CHECKING=False \
-      ansible-playbook \
-      -i ${split("/", var.ipv4_address)[0]}, \
-      ./${var.hostname}/playbook.yml
+      ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i ${split("/", var.ipv4_address)[0]}, ./${var.hostname}/playbook.yml
     EOT
   }
 }
