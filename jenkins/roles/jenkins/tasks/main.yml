@@ -30,3 +30,4 @@
 - name: Install Jenkins
   apt:
     name: jenkins
+    state: latest

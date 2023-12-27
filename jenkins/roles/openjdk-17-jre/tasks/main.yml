@@ -9,3 +9,4 @@
     name:
       - fontconfig
       - openjdk-17-jre
+    state: latest
