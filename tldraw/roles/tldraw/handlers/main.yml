@@ -1,0 +1,6 @@
+---
+# handlers file for myrole
+- name: restart tldraw-sockets-example
+  service:
+    name: tldraw-sockets-example
+    state: reloaded

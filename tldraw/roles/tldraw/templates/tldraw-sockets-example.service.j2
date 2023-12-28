@@ -1,0 +1,12 @@
+[Unit]
+Description=Node app
+
+[Service]
+ExecStart=/usr/bin/npm run dev
+WorkingDirectory=/var/tldraw-sockets-example
+KillMode=process
+Restart=always
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
