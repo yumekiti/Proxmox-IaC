@@ -1,0 +1,30 @@
+---
+# tasks file for myrole
+- name: Update apt cache
+  apt:
+    update_cache: yes
+
+- name: Install curl
+  apt:
+    name: curl
+    state: present
+    update_cache: yes
+    force_apt_get: yes
+
+- name: Install filebrowser
+  shell: curl -fsSL https://raw.githubusercontent.com/filebrowser/get/master/get.sh | bash
+
+- name: make share directory
+  ansible.builtin.file:
+    path: /mnt/share
+    state: directory
+    mode: 755
+
+- name: Set filebrowser config
+  command: filebrowser config set --address "0.0.0.0"
+
+- name: systemd service
+  template:
+    src: filebrowser.service.j2
+    dest: /etc/systemd/system/filebrowser.service
+  notify: restart filebrowser

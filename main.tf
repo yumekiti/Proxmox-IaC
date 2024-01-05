@@ -30,3 +30,14 @@ module "tldraw" {
   public_key_path  = var.public_key_path
   private_key_path = var.private_key_path
 }
+
+module "filebrowser" {
+  hostname         = "filebrowser"
+  source           = "./filebrowser/terraform"
+  target_node      = "node1"
+  bridge_name      = "vmbr1"
+  ipv4_address     = "10.10.10.13/24"
+  gateway_address  = "10.10.10.1"
+  public_key_path  = var.public_key_path
+  private_key_path = var.private_key_path
+}
