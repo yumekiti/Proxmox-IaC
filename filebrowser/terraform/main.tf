@@ -1,4 +1,4 @@
-resource "proxmox_lxc" "jenkins" {
+resource "proxmox_lxc" "filebrowser" {
   target_node = var.target_node
   hostname    = var.hostname
   cores       = 1
