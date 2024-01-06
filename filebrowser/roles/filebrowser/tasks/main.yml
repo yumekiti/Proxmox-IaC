@@ -20,6 +20,12 @@
     state: directory
     mode: 755
 
+- name: make filebrowser config directory
+  ansible.builtin.file:
+    path: /etc/filebrowser
+    state: directory
+    mode: 755
+
 - name: Set filebrowser config
   command:
     cmd: >
