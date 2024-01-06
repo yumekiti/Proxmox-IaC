@@ -21,8 +21,11 @@
     mode: 755
 
 - name: Set filebrowser config
-  shell: >
-    filebrowser config set --address "0.0.0.0"
+  command:
+    cmd: >
+      filebrowser config init --port 8080 --root /mnt/share
+      filebrowser config set --address "0.0.0.0"
+    chdir: /etc/filebrowser
 
 - name: systemd service
   template:
