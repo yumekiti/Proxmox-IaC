@@ -21,7 +21,8 @@
     mode: 755
 
 - name: Set filebrowser config
-  command: filebrowser config set --address "0.0.0.0"
+  shell: >
+    filebrowser config set --address "0.0.0.0"
 
 - name: systemd service
   template:
