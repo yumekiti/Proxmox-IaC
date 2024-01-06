@@ -26,10 +26,15 @@
     state: directory
     mode: 755
 
-- name: Set filebrowser config
+- name: make filebrowser config
   command:
     cmd: >
       filebrowser config init --port 8080 --root /mnt/share
+    chdir: /etc/filebrowser
+
+- name: Set filebrowser config
+  command:
+    cmd: >
       filebrowser config set --address "0.0.0.0"
     chdir: /etc/filebrowser
 
