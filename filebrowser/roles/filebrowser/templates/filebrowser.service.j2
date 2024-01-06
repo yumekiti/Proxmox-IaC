@@ -3,6 +3,7 @@ Description=Filebrowser
 
 [Service]
 ExecStart=filebrowser -r /mnt/share
+WorkingDirectory=/etc/filebrowser
 KillMode=process
 Restart=always
 Type=simple
